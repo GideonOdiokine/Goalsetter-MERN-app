@@ -20,7 +20,7 @@ const updateGoal = (req, res) => {
 };
 
 // @desc Delete goal
-// @route PUT /api/goals/:id
+// @route DELETE /api/goals/:id
 // @access Private
 const deleteGoal = (req, res) => {
   res.status(200).json({ message: `Delete goal ${req.params.id}` });
