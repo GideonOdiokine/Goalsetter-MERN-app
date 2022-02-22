@@ -6,10 +6,11 @@ const {
   updateGoal,
   deleteGoal,
 } = require("../controllers/goalController");
+const { protect } = require("../middleware/authMiddleware");
 
 // short way of routing
-router.route("/").get(getGoals).post(setGoal);
-router.route("/:id").put(updateGoal).delete(deleteGoal);
+router.route("/").get(protect, getGoals).post(protect, setGoal);
+router.route("/:id").put(protect, updateGoal).delete(protect, deleteGoal);
 
 // Long way of routing.
 // router.get("/", getGoals);
