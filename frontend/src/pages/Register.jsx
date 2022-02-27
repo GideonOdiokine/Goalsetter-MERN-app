@@ -49,12 +49,16 @@ function Register() {
     if (password !== password2) {
       toast.error("Passwords do not match");
     }
-    const userData = {
-      name,
-      email,
-      password,
-    };
-    dispatch(register(userData));
+    if (name && email && password) {
+      const userData = {
+        name,
+        email,
+        password,
+      };
+      dispatch(register(userData));
+    } else {
+      toast.error("Please fill in the fields");
+    }
   };
 
   if (isLoading) {
