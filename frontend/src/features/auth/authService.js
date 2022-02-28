@@ -12,21 +12,20 @@ const register = async (userData) => {
     res.json()
   );
 
-  if (response) {
+  if (response.token) {
     localStorage.setItem("user", JSON.stringify(response));
   }
 
   return response;
 };
 
-
-const logout=async()=>{
-  localStorage.removeItem('user')
-}
+const logout = async () => {
+  localStorage.removeItem("user");
+};
 
 const authService = {
   register,
-  logout
+  logout,
 };
 
 export default authService;
