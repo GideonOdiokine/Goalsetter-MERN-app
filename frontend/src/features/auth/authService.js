@@ -1,8 +1,8 @@
-const API_URL = "api/users/";
+const API_URL = "/api/users/";
 
 // Register user
 
-const resgister = async (userData) => {
+const register = async (userData) => {
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -12,15 +12,21 @@ const resgister = async (userData) => {
     res.json()
   );
 
-  if (response.data) {
-    localStorage.setItem("user", JSON.stringify(response.data));
+  if (response) {
+    localStorage.setItem("user", JSON.stringify(response));
   }
 
-  return response.data;
+  return response;
 };
 
+
+const logout=async()=>{
+  localStorage.removeItem('user')
+}
+
 const authService = {
-  resgister,
+  register,
+  logout
 };
 
 export default authService;
