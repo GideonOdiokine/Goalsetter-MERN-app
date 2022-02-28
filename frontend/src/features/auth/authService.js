@@ -19,7 +19,7 @@ const register = async (userData) => {
   return response;
 };
 
-const logout = async () => {
+const logout = () => {
   localStorage.removeItem("user");
 };
 
