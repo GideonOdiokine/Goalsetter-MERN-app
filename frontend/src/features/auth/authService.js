@@ -19,6 +19,23 @@ const register = async (userData) => {
   return response;
 };
 
+const login = async (userData) => {
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(userData),
+  };
+  const response = await fetch(API_URL + "login", requestOptions).then(
+    (res) => res.ok && res.json()
+  );
+
+  if (response) {
+    localStorage.setItem("user", JSON.stringify(response));
+  }
+  return response;
+  
+};
+
 const logout = () => {
   localStorage.removeItem("user");
 };
@@ -26,6 +43,7 @@ const logout = () => {
 const authService = {
   register,
   logout,
+  login,
 };
 
 export default authService;
