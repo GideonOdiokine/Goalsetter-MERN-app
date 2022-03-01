@@ -5,7 +5,7 @@ function GoalItem({ goal }) {
     <div className="goal">
       <div>{new Date(goal.createdAt).toLocaleString("en-Us")}</div>
       <h2>{goal.text}</h2>
-      <button className="close">X</button>
+      <button className="close">x</button>
     </div>
   );
 }
