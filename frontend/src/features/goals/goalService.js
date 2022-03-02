@@ -34,9 +34,25 @@ const getGoals = async (token) => {
   return response;
 };
 
+const deleteGoal = async (id, token) => {
+  const requestOptions = {
+    method: "DELETE",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+  };
+  const response = await fetch(API_URL + id, requestOptions).then((res) => {
+    return res.json();
+  });
+
+  return response;
+};
+
 const goalService = {
   createGoal,
   getGoals,
+  deleteGoal,
 };
 
 export default goalService;
