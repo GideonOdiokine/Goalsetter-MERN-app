@@ -45,7 +45,7 @@ const deleteGoal = async (id, token) => {
   const response = await fetch(API_URL + id, requestOptions).then((res) => {
     return res.json();
   });
-
+  console.log(response);
   return response;
 };
 
