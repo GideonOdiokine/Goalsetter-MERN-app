@@ -10,7 +10,7 @@ function GoalForm() {
     e.preventDefault();
 
     dispatch(createGoal({ text }));
-    setText("")
+    setText("");
   };
   return (
     <section className="form">
