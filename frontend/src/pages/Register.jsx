@@ -49,7 +49,7 @@ function Register() {
     if (password !== password2) {
       toast.error("Passwords do not match");
     }
-    if (name && email && password) {
+    if (name && email && password && password2) {
       const userData = {
         name,
         email,
